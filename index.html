@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL Dojo — Learn and Practice SQL</title>
+<meta name="description" content="Interactive SQL lessons and a playground that run entirely in your browser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%234f46e5%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27monospace%27%3ESQL%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="menuBtn" class="icon-btn" aria-label="Toggle lesson list">☰</button>
+  <h1>SQL Dojo</h1>
+  <div class="progress" title="Your progress">
+    <div class="bar"><div id="barFill"></div></div>
+    <span id="progressText"></span>
+  </div>
+  <button id="resetProgress" class="ghost small">Reset progress</button>
+</header>
+
+<div class="layout">
+  <nav id="sidebar" aria-label="Lessons"></nav>
+
+  <main>
+    <section id="lessonPanel" class="card"></section>
+
+    <section class="card editor-card">
+      <div class="editor-head">
+        <label for="editor">Your SQL</label>
+        <span class="kbd-hint">Ctrl/⌘ + Enter to run</span>
+      </div>
+      <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off" rows="8"></textarea>
+      <div class="actions">
+        <button id="runBtn" class="primary">▶ Run</button>
+        <button id="checkBtn" class="accent">✓ Check answer</button>
+        <button id="hintBtn" class="ghost">💡 Hint</button>
+        <button id="solutionBtn" class="ghost">Show solution</button>
+        <button id="resetDbBtn" class="ghost">↺ Reset database</button>
+      </div>
+      <div id="feedback" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Results</h2>
+      <div id="results" class="results"><p class="muted">Run a query to see results here.</p></div>
+    </section>
+  </main>
+
+  <aside id="schema" class="card" aria-label="Database schema">
+    <h2 class="section-title">Database schema</h2>
+    <div id="schemaBody"></div>
+  </aside>
+</div>
+
+<script src="vendor/sql-wasm.js"></script>
+<script src="data.js"></script>
+<script src="lessons.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
